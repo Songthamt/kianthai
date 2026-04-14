@@ -13,9 +13,10 @@ export function WorksheetPreview({
   fontSize,
   showGuides,
 }: WorksheetPreviewProps) {
-  const displayName = name || "ชื่อ";
-  const lineHeight = Math.max(2.2, fontSize < 30 ? 2.4 : 2.2);
-  const rowHeight = fontSize * lineHeight;
+  const displayName = name || "ชื่อ ขวัญ";
+  const dynamicMultiplier = fontSize < 50 ? 1.4 : 1.2;
+  const rowHeight = fontSize * dynamicMultiplier;
+  const lineHeight = 1.1;
 
   return (
     <div className="flex-1 overflow-auto p-8 flex justify-center items-start no-print-wrapper">
