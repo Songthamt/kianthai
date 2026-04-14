@@ -34,14 +34,21 @@ export function WorksheetPreview({
           {Array.from({ length: repetitions }).map((_, i) => (
             <div
               key={i}
-              className={`flex items-center ${showGuides ? "tracing-row-dashed" : ""}`}
+              className="relative flex items-center"
               style={{
                 height: `${rowHeight}px`,
                 minHeight: `${rowHeight}px`,
               }}
             >
+              {showGuides && (
+                <>
+                  <div className="guideline-top" />
+                  <div className="guideline-middle" />
+                  <div className="guideline-bottom" />
+                </>
+              )}
               <span
-                className="tracing-text block w-full"
+                className="tracing-text block w-full relative z-10"
                 style={{
                   fontFamily: "'ThaiTracing', 'Sarabun', 'Noto Sans Thai', sans-serif",
                   fontSize: `${fontSize}px`,
