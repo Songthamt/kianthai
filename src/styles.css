@@ -196,6 +196,10 @@
     background-repeat: no-repeat !important;
   }
 
+  .tracing-text {
+    color: #222 !important;
+  }
+
   @page {
     size: A4;
     margin: 0;
