@@ -200,7 +200,7 @@
   }
 
   @page {
-    size: A4;
+    size: A4 var(--page-orientation, portrait);;
     margin: 0;
   }
 }

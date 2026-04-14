@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 interface WorksheetPreviewProps {
   name: string;
   repetitions: number;
@@ -18,7 +20,12 @@ export function WorksheetPreview({
   const rowHeight = fontSize * dynamicMultiplier;
   const lineHeight = 1.1;
 
-  return (
+useEffect(() => {
+  const orientation = isLandscape ? 'landscape' : 'portrait';
+  document.documentElement.style.setProperty('--page-orientation', orientation);
+}, [isLandscape]);
+
+return (
     <div className="flex-1 overflow-auto p-8 flex justify-center items-start no-print-wrapper">
       <div
         className="a4-sheet transition-all duration-300 origin-top"
