@@ -21,7 +21,7 @@ function Index() {
   const [name, setName] = useState("");
   const [repetitions, setRepetitions] = useState(5);
   const [isLandscape, setIsLandscape] = useState(false);
-  const [fontSize, setFontSize] = useState(48);
+  const [fontSize, setFontSize] = useState(64);
   const [showGuides, setShowGuides] = useState(true);
 
   const handlePrint = useCallback(() => {

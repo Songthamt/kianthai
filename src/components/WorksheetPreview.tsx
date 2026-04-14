@@ -14,7 +14,7 @@ export function WorksheetPreview({
   showGuides,
 }: WorksheetPreviewProps) {
   const displayName = name || "ชื่อ";
-  const lineHeight = Math.max(3.0, fontSize < 30 ? 3.2 : 3.0);
+  const lineHeight = Math.max(2.2, fontSize < 30 ? 2.4 : 2.2);
   const rowHeight = fontSize * lineHeight;
 
   return (
@@ -28,20 +28,7 @@ export function WorksheetPreview({
           display: "flex",
           flexDirection: "column",
         }}
-      >
-        {/* Sheet header */}
-        <div className="mb-4 pb-3 border-b-2 border-border/50">
-          <p className="text-xs text-muted-foreground font-semibold tracking-wider uppercase">
-            Thai Name Tracing Worksheet
-          </p>
-          <h2
-            className="text-lg font-bold text-foreground mt-1"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            ฝึกเขียนชื่อ: {displayName}
-          </h2>
-        </div>
-
+        >
         {/* Tracing rows */}
         <div className="flex-1 flex flex-col gap-1 overflow-hidden">
           {Array.from({ length: repetitions }).map((_, i) => (
