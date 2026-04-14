@@ -57,7 +57,7 @@
 
 @font-face {
   font-family: 'ThaiTracing';
-  src: local('ThaiTracing'), local('Sarabun');
+  src: url('/Layiji_kutlaimuu2_02.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
