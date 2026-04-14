@@ -28,20 +28,7 @@ export function WorksheetPreview({
           display: "flex",
           flexDirection: "column",
         }}
-      >
-        {/* Sheet header */}
-        <div className="mb-4 pb-3 border-b-2 border-border/50">
-          <p className="text-xs text-muted-foreground font-semibold tracking-wider uppercase">
-            Thai Name Tracing Worksheet
-          </p>
-          <h2
-            className="text-lg font-bold text-foreground mt-1"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            ฝึกเขียนชื่อ: {displayName}
-          </h2>
-        </div>
-
+        >
         {/* Tracing rows */}
         <div className="flex-1 flex flex-col gap-1 overflow-hidden">
           {Array.from({ length: repetitions }).map((_, i) => (
