@@ -14,7 +14,7 @@ export function WorksheetPreview({
   showGuides,
 }: WorksheetPreviewProps) {
   const displayName = name || "ชื่อ";
-  const lineHeight = Math.max(3.0, fontSize < 30 ? 3.2 : 3.0);
+  const lineHeight = Math.max(2.2, fontSize < 30 ? 2.4 : 2.2);
   const rowHeight = fontSize * lineHeight;
 
   return (
