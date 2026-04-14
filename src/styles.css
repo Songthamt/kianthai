@@ -126,26 +126,34 @@
   }
 }
 
-/* Worksheet tracing row guide lines */
-.tracing-row {
-  position: relative;
-  background-image:
-    linear-gradient(to right, oklch(0.75 0.02 250) 0%, oklch(0.75 0.02 250) 100%),
-    linear-gradient(to right, oklch(0.80 0.02 250) 0%, oklch(0.80 0.02 250) 100%),
-    linear-gradient(to right, oklch(0.75 0.02 250) 0%, oklch(0.75 0.02 250) 100%);
-  background-size: 100% 1.5px, 100% 1px, 100% 1.5px;
-  background-position: left top, left center, left bottom;
-  background-repeat: no-repeat;
+/* Guideline DOM elements */
+.guideline-top,
+.guideline-middle,
+.guideline-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
 }
 
-.tracing-row-dashed {
-  background-image:
-    linear-gradient(to right, oklch(0.75 0.02 250) 0%, oklch(0.75 0.02 250) 100%),
-    repeating-linear-gradient(to right, oklch(0.80 0.02 250) 0px, oklch(0.80 0.02 250) 6px, transparent 6px, transparent 12px),
-    linear-gradient(to right, oklch(0.75 0.02 250) 0%, oklch(0.75 0.02 250) 100%);
-  background-size: 100% 1.5px, 100% 1px, 100% 1.5px;
-  background-position: left top, left center, left bottom;
-  background-repeat: no-repeat;
+.guideline-top {
+  top: 0;
+  height: 1.5px;
+  background-color: oklch(0.75 0.02 250);
+}
+
+.guideline-bottom {
+  bottom: 0;
+  height: 1.5px;
+  background-color: oklch(0.75 0.02 250);
+}
+
+.guideline-middle {
+  top: 50%;
+  transform: translateY(-50%);
+  height: 1px;
+  border-top: 1px dashed oklch(0.80 0.02 250);
+  background: none;
 }
 
 /* A4 sheet styling */
@@ -176,24 +184,13 @@
     padding: 15mm 20mm !important;
   }
 
-  .tracing-row {
-    background-image:
-      linear-gradient(to right, #555 0%, #555 100%),
-      linear-gradient(to right, #888 0%, #888 100%),
-      linear-gradient(to right, #555 0%, #555 100%) !important;
-    background-size: 100% 1.5px, 100% 1px, 100% 1.5px !important;
-    background-position: left top, left center, left bottom !important;
-    background-repeat: no-repeat !important;
+  .guideline-top,
+  .guideline-bottom {
+    background-color: #555 !important;
   }
 
-  .tracing-row-dashed {
-    background-image:
-      linear-gradient(to right, #555 0%, #555 100%),
-      repeating-linear-gradient(to right, #888 0px, #888 6px, transparent 6px, transparent 12px),
-      linear-gradient(to right, #555 0%, #555 100%) !important;
-    background-size: 100% 1.5px, 100% 1px, 100% 1.5px !important;
-    background-position: left top, left center, left bottom !important;
-    background-repeat: no-repeat !important;
+  .guideline-middle {
+    border-top-color: #888 !important;
   }
 
   .tracing-text {
