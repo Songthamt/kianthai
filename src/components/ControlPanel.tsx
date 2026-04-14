@@ -51,7 +51,7 @@ export function ControlPanel({
           </div>
           <div>
             <h1 className="text-base font-bold text-foreground leading-tight">
-              Thai Tracing Studio
+              Kian Thai
             </h1>
             <p className="text-xs text-muted-foreground">
               Worksheet Generator
