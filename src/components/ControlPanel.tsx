@@ -17,6 +17,7 @@ interface ControlPanelProps {
   showGuides: boolean;
   onGuidesToggle: () => void;
   onPrint: () => void;
+  hidePrintButton?: boolean;
 }
 
 const fontSizeLabels = ["Toddler", "Beginner", "Standard", "Advanced"];
@@ -40,9 +41,10 @@ export function ControlPanel({
   showGuides,
   onGuidesToggle,
   onPrint,
+  hidePrintButton = false,
 }: ControlPanelProps) {
   return (
-    <aside className="no-print w-80 shrink-0 bg-panel border-r border-border flex flex-col overflow-y-auto">
+    <aside className="no-print w-full md:w-80 shrink-0 bg-panel border-r border-border flex flex-col overflow-y-auto">
       {/* Header */}
       <div className="p-5 border-b border-border">
         <div className="flex items-center gap-2.5">
@@ -169,17 +171,19 @@ export function ControlPanel({
         </div>
       </div>
 
-      {/* Print Button */}
-      <div className="p-5 border-t border-border">
-        <Button
-          onClick={onPrint}
-          className="w-full h-11 bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 shadow-md"
-          size="lg"
-        >
-          <Printer className="w-4 h-4 mr-2" />
-          เตรียมพิมพ์ Print
-        </Button>
-      </div>
+      {/* Print Button (desktop only — mobile uses sticky bottom bar) */}
+      {!hidePrintButton && (
+        <div className="p-5 border-t border-border">
+          <Button
+            onClick={onPrint}
+            className="w-full h-11 bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 shadow-md"
+            size="lg"
+          >
+            <Printer className="w-4 h-4 mr-2" />
+            เตรียมพิมพ์ Print
+          </Button>
+        </div>
+      )}
     </aside>
   );
 }
