@@ -26,13 +26,13 @@ useEffect(() => {
 }, [isLandscape]);
 
 return (
-    <div className="flex-1 overflow-auto p-8 flex justify-center items-start no-print-wrapper">
+    <div className="flex-1 overflow-auto p-3 md:p-8 flex justify-center items-start no-print-wrapper w-full">
       <div
         className="a4-sheet transition-all duration-300 origin-top"
         style={{
           aspectRatio: isLandscape ? "1.414 / 1" : "1 / 1.414",
-          width: isLandscape ? "min(90%, 900px)" : "min(80%, 640px)",
-          padding: "clamp(20px, 4%, 48px)",
+          width: isLandscape ? "min(100%, 900px)" : "min(100%, 640px)",
+          padding: "clamp(16px, 4%, 48px)",
           display: "flex",
           flexDirection: "column",
         }}
