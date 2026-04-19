@@ -47,14 +47,14 @@ export function ControlPanel({
       <div className="p-5 border-b border-border">
         <div className="flex items-center gap-2.5">
           <div className="w-9 h-9 rounded-lg bg-mint flex items-center justify-center">
-            <Type className="w-5 h-5 text-mint-foreground" />
+            <span className="text-xl -translate-y-0.5">✍️</span>
           </div>
           <div>
             <h1 className="text-base font-bold text-foreground leading-tight">
-              Kian Thai
+              เขียนไทย Kian Thai
             </h1>
             <p className="text-xs text-muted-foreground">
-              Worksheet Generator
+              Worksheet Maker
             </p>
           </div>
         </div>
@@ -65,13 +65,13 @@ export function ControlPanel({
         {/* Name Input */}
         <div className="space-y-2">
           <Label htmlFor="childName" className="text-sm font-semibold text-panel-foreground">
-            ชื่อเด็ก — Child's Name
+            คำที่ต้องการฝึก — Practice Text
           </Label>
           <Input
             id="childName"
             value={name}
             onChange={(e) => onNameChange(e.target.value)}
-            placeholder="พิมพ์ชื่อที่นี่..."
+            placeholder="พิมพ์ที่นี่ — Type here..."
             className="text-lg bg-secondary border-border focus:ring-primary"
           />
         </div>

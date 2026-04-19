@@ -15,7 +15,7 @@ export function WorksheetPreview({
   fontSize,
   showGuides,
 }: WorksheetPreviewProps) {
-  const displayName = name || "ชื่อ ขวัญ";
+  const displayName = name || "เขียนชื่อเล่น   Kian Thai";
   const dynamicMultiplier = fontSize < 50 ? 1.4 : 1.2;
   const rowHeight = fontSize * dynamicMultiplier;
   const lineHeight = 1.1;
