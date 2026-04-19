@@ -1,4 +1,4 @@
-import { Printer, RotateCcw, Type, Rows3, Ruler } from "lucide-react";
+import { Printer, RotateCcw, Type, Rows3, Ruler, Github } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
@@ -150,9 +150,22 @@ export function ControlPanel({
         <div className="flex items-center justify-between py-3 px-4 bg-secondary rounded-lg">
           <Label className="text-sm font-semibold text-panel-foreground flex items-center gap-1.5 cursor-pointer">
             <Ruler className="w-4 h-4 text-muted-foreground" />
-            Guide Lines
+            เส้นประ Guide Lines
           </Label>
           <Switch checked={showGuides} onCheckedChange={onGuidesToggle} />
+        </div>
+
+        {/* Footer / GitHub Link */}
+        <div className="flex justify-center pt-2">
+          <a 
+            href="https://github.com/Songthamt/kianthai" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-muted-foreground opacity-40 hover:opacity-100 transition-opacity"
+          >
+            <Github className="w-3 h-3" />
+            <span>Open Source</span>
+          </a>
         </div>
       </div>
 
@@ -164,7 +177,7 @@ export function ControlPanel({
           size="lg"
         >
           <Printer className="w-4 h-4 mr-2" />
-          Prepare for Print
+          เตรียมพิมพ์ Print
         </Button>
       </div>
     </aside>
