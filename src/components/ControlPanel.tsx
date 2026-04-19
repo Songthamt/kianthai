@@ -54,7 +54,7 @@ export function ControlPanel({
               เขียนไทย Kian Thai
             </h1>
             <p className="text-xs text-muted-foreground">
-              Worksheet Maker
+              สร้างใบงาน Worksheet Maker
             </p>
           </div>
         </div>
@@ -81,7 +81,7 @@ export function ControlPanel({
           <div className="flex items-center justify-between">
             <Label className="text-sm font-semibold text-panel-foreground flex items-center gap-1.5">
               <Rows3 className="w-4 h-4 text-muted-foreground" />
-              Rows
+              จำนวนแถว Rows
             </Label>
             <span className="text-xs font-bold text-primary bg-mint/30 px-2 py-0.5 rounded-full">
               {repetitions}
@@ -101,7 +101,7 @@ export function ControlPanel({
           <div className="flex items-center justify-between">
             <Label className="text-sm font-semibold text-panel-foreground flex items-center gap-1.5">
               <Type className="w-4 h-4 text-muted-foreground" />
-              Font Size
+              ขนาดตัวอักษร Font Size
             </Label>
             <span className="text-xs font-bold text-accent bg-coral/30 px-2 py-0.5 rounded-full">
               {getFontLabel(fontSize)}
@@ -120,7 +120,7 @@ export function ControlPanel({
         <div className="space-y-3">
           <Label className="text-sm font-semibold text-panel-foreground flex items-center gap-1.5">
             <RotateCcw className="w-4 h-4 text-muted-foreground" />
-            Orientation
+            แนววางกระดาษ Orientation
           </Label>
           <div className="flex gap-2">
             <button
