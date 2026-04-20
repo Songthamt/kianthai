@@ -192,6 +192,12 @@
     display: none !important;
   }
 
+  .app-shell {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
   .no-print-wrapper {
     display: block !important;
     padding: 0 !important;

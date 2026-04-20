@@ -42,7 +42,7 @@ function Index() {
   }, []);
 
   return (
-    <div className="flex flex-col md:flex-row h-screen overflow-hidden bg-studio-bg">
+    <div className="app-shell flex flex-col md:flex-row h-screen overflow-hidden bg-studio-bg">
       {/* Mobile Edit/View toggle */}
       <div className="no-print md:hidden flex items-center justify-center gap-2 px-4 py-3 bg-panel border-b border-border">
         <div className="inline-flex items-center bg-secondary rounded-full p-1 shadow-inner">
@@ -73,9 +73,9 @@ function Index() {
 
       {/* Control Panel: hidden on mobile when viewing */}
       <div
-        className={`${
+        className={`$${""}{
           isMobile ? (mobileView === "edit" ? "flex" : "hidden") : "flex"
-        } flex-1 md:flex-none md:w-80 min-h-0 pb-20 md:pb-0`}
+        } flex-1 md:flex-none md:w-80 min-h-0 pb-20 md:pb-0 print:hidden`}
       >
         <ControlPanel
           name={name}
@@ -95,9 +95,9 @@ function Index() {
 
       {/* Preview: hidden on mobile when editing */}
       <div
-        className={`${
+        className={`$${""}{
           isMobile ? (mobileView === "view" ? "flex" : "hidden") : "flex"
-        } flex-1 min-h-0 pb-20 md:pb-0`}
+        } flex-1 min-h-0 pb-20 md:pb-0 print:flex print:w-full print:pb-0`}
       >
         <WorksheetPreview
           name={name}
