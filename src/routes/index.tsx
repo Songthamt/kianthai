@@ -43,7 +43,6 @@ function Index() {
 
   return (
     <div className="app-shell flex flex-col md:flex-row h-screen overflow-hidden bg-studio-bg">
-      {/* Mobile Edit/View toggle */}
       <div className="no-print md:hidden flex items-center justify-center gap-2 px-4 py-3 bg-panel border-b border-border">
         <div className="inline-flex items-center bg-secondary rounded-full p-1 shadow-inner">
           <button
@@ -71,13 +70,27 @@ function Index() {
         </div>
       </div>
 
-      {/* Control Panel: hidden on mobile when viewing */}
       <div
         className={`${
           isMobile ? (mobileView === "edit" ? "flex" : "hidden") : "flex"
         } flex-1 md:flex-none md:w-80 min-h-0 pb-20 md:pb-0 print:hidden`}
       >
-...
+        <ControlPanel
+          name={name}
+          onNameChange={setName}
+          repetitions={repetitions}
+          onRepetitionsChange={setRepetitions}
+          isLandscape={isLandscape}
+          onOrientationToggle={() => setIsLandscape((v) => !v)}
+          fontSize={fontSize}
+          onFontSizeChange={setFontSize}
+          showGuides={showGuides}
+          onGuidesToggle={() => setShowGuides((v) => !v)}
+          onPrint={handlePrint}
+          hidePrintButton={isMobile}
+        />
+      </div>
+
       <div
         className={`${
           isMobile ? (mobileView === "view" ? "flex" : "hidden") : "flex"
@@ -92,7 +105,6 @@ function Index() {
         />
       </div>
 
-      {/* Sticky bottom Print bar — mobile only */}
       <div className="no-print md:hidden fixed bottom-0 left-0 right-0 z-50 p-3 bg-panel/95 backdrop-blur border-t border-border">
         <Button
           onClick={handlePrint}
