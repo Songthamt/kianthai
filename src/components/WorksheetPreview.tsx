@@ -20,29 +20,24 @@ export function WorksheetPreview({
   const rowHeight = fontSize * dynamicMultiplier;
   const lineHeight = 1.1;
 
-useEffect(() => {
-  const orientation = isLandscape ? 'landscape' : 'portrait';
-  document.documentElement.style.setProperty('--page-orientation', orientation);
-}, [isLandscape]);
+  useEffect(() => {
+    const orientation = isLandscape ? 'landscape' : 'portrait';
+    document.documentElement.style.setProperty('--page-orientation', orientation);
+  }, [isLandscape]);
 
-return (
-    <div className="flex-1 overflow-auto p-3 md:p-8 flex justify-center items-start no-print-wrapper w-full">
+  return (
+    <div className="no-print-wrapper flex-1 overflow-auto p-3 md:p-8 flex justify-center items-start w-full print:p-0 print:overflow-visible print:block">
       <div
-        className="a4-sheet transition-all duration-300 origin-top"
-        style={{
-          aspectRatio: isLandscape ? "1.414 / 1" : "1 / 1.414",
-          width: isLandscape ? "min(100%, 900px)" : "min(100%, 640px)",
-          padding: "clamp(16px, 4%, 48px)",
-          display: "flex",
-          flexDirection: "column",
-        }}
-        >
+        className={`a4-sheet transition-all duration-300 origin-top ${
+          isLandscape ? "a4-sheet--landscape" : "a4-sheet--portrait"
+        }`}
+      >
         {/* Tracing rows */}
-        <div className="flex-1 flex flex-col gap-1 overflow-hidden">
+        <div className="tracing-rows flex-1 flex flex-col gap-1 overflow-hidden">
           {Array.from({ length: repetitions }).map((_, i) => (
             <div
               key={i}
-              className="relative flex items-center"
+              className="tracing-row relative flex items-center"
               style={{
                 height: `${rowHeight}px`,
                 minHeight: `${rowHeight}px`,
