@@ -161,15 +161,30 @@
   background: white;
   box-shadow: 0 8px 40px -8px oklch(0.5 0.03 250 / 0.25), 0 2px 8px -2px oklch(0.5 0.03 250 / 0.1);
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(16px, 4%, 48px);
+}
+
+.a4-sheet--portrait {
+  aspect-ratio: 1 / 1.414;
+  width: min(100%, 640px);
+}
+
+.a4-sheet--landscape {
+  aspect-ratio: 1.414 / 1;
+  width: min(100%, 900px);
 }
 
 /* Print styles */
 @media print {
-  body {
+  html, body, #root {
+    height: auto !important;
+    overflow: visible !important;
     background: white !important;
     margin: 0 !important;
     padding: 0 !important;
-    -webkit-print-color-adjust: exact !important; 
+    -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
 
@@ -177,13 +192,39 @@
     display: none !important;
   }
 
-  .a4-sheet {
+  .no-print-wrapper {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: visible !important;
+  }
+
+  .a4-sheet,
+  .a4-sheet--portrait,
+  .a4-sheet--landscape {
     box-shadow: none !important;
     border-radius: 0 !important;
     width: 100% !important;
     height: 100% !important;
+    aspect-ratio: auto !important;
     margin: 0 !important;
-    padding: 15mm 20mm !important;
+    padding: 10mm 12mm !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .tracing-rows {
+    flex: 1 1 auto !important;
+    height: 100% !important;
+    overflow: visible !important;
+  }
+
+  .tracing-row {
+    flex: 1 1 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
   }
 
   .guideline-top,
@@ -200,7 +241,7 @@
   }
 
   @page {
-    size: A4 var(--page-orientation, portrait);;
+    size: A4 var(--page-orientation, portrait);
     margin: 0;
   }
 }
