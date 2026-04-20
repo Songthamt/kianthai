@@ -158,6 +158,10 @@
 
 /* A4 sheet styling */
 .a4-sheet {
+  --print-page-width: 210mm;
+  --print-page-height: 297mm;
+  --print-padding-y: 10mm;
+  --print-padding-x: 12mm;
   background: white;
   box-shadow: 0 8px 40px -8px oklch(0.5 0.03 250 / 0.25), 0 2px 8px -2px oklch(0.5 0.03 250 / 0.1);
   border-radius: 8px;
@@ -172,13 +176,27 @@
 }
 
 .a4-sheet--landscape {
+  --print-page-width: 297mm;
+  --print-page-height: 210mm;
   aspect-ratio: 1.414 / 1;
   width: min(100%, 900px);
 }
 
+.tracing-row {
+  height: var(--screen-row-height);
+  min-height: var(--screen-row-height);
+}
+
+.tracing-text {
+  font-size: var(--worksheet-font-size);
+  line-height: var(--worksheet-line-height);
+}
+
 /* Print styles */
 @media print {
-  html, body, #root {
+  html,
+  body,
+  #root {
     height: auto !important;
     overflow: visible !important;
     background: white !important;
@@ -200,10 +218,9 @@
 
   .no-print-wrapper {
     display: block !important;
+    width: var(--print-page-width) !important;
+    margin: 0 auto !important;
     padding: 0 !important;
-    margin: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
     overflow: visible !important;
   }
 
@@ -212,25 +229,28 @@
   .a4-sheet--landscape {
     box-shadow: none !important;
     border-radius: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
+    width: var(--print-page-width) !important;
+    min-height: var(--print-page-height) !important;
+    height: var(--print-page-height) !important;
     aspect-ratio: auto !important;
     margin: 0 !important;
-    padding: 10mm 12mm !important;
-    display: flex !important;
-    flex-direction: column !important;
+    padding: var(--print-padding-y) var(--print-padding-x) !important;
+    display: block !important;
+    overflow: hidden !important;
   }
 
   .tracing-rows {
-    flex: 1 1 auto !important;
-    height: 100% !important;
-    overflow: visible !important;
+    display: block !important;
+    height: auto !important;
+    overflow: hidden !important;
   }
 
   .tracing-row {
-    flex: 1 1 0 !important;
-    height: auto !important;
-    min-height: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    height: calc((var(--print-page-height) - (var(--print-padding-y) * 2)) / var(--row-count)) !important;
+    min-height: calc((var(--print-page-height) - (var(--print-padding-y) * 2)) / var(--row-count)) !important;
+    page-break-inside: avoid !important;
   }
 
   .guideline-top,

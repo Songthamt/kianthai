@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, type CSSProperties } from 'react';
 
 interface WorksheetPreviewProps {
   name: string;
@@ -25,24 +25,24 @@ export function WorksheetPreview({
     document.documentElement.style.setProperty('--page-orientation', orientation);
   }, [isLandscape]);
 
+  const sheetStyle = {
+    '--row-count': repetitions,
+    '--screen-row-height': `${rowHeight}px`,
+    '--worksheet-font-size': `${fontSize}px`,
+    '--worksheet-line-height': `${lineHeight}`,
+  } as CSSProperties;
+
   return (
-    <div className="no-print-wrapper flex-1 overflow-auto p-3 md:p-8 flex justify-center items-start w-full print:p-0 print:overflow-visible print:block">
+    <div className="no-print-wrapper flex-1 overflow-auto p-3 md:p-8 flex justify-center items-start w-full print:block print:overflow-visible print:p-0">
       <div
         className={`a4-sheet transition-all duration-300 origin-top ${
-          isLandscape ? "a4-sheet--landscape" : "a4-sheet--portrait"
+          isLandscape ? 'a4-sheet--landscape' : 'a4-sheet--portrait'
         }`}
+        style={sheetStyle}
       >
-        {/* Tracing rows */}
         <div className="tracing-rows flex-1 flex flex-col gap-1 overflow-hidden">
           {Array.from({ length: repetitions }).map((_, i) => (
-            <div
-              key={i}
-              className="tracing-row relative flex items-center"
-              style={{
-                height: `${rowHeight}px`,
-                minHeight: `${rowHeight}px`,
-              }}
-            >
+            <div key={i} className="tracing-row relative flex items-center">
               {showGuides && (
                 <>
                   <div className="guideline-top" />
@@ -54,11 +54,9 @@ export function WorksheetPreview({
                 className="tracing-text block w-full relative z-10"
                 style={{
                   fontFamily: "'ThaiTracing', 'Sarabun', 'Noto Sans Thai', sans-serif",
-                  fontSize: `${fontSize}px`,
-                  lineHeight: `${lineHeight}`,
-                  color: "oklch(0.75 0.02 250)",
-                  letterSpacing: "0.05em",
-                  userSelect: "none",
+                  color: 'oklch(0.75 0.02 250)',
+                  letterSpacing: '0.05em',
+                  userSelect: 'none',
                 }}
               >
                 {displayName}
