@@ -73,29 +73,13 @@ function Index() {
 
       {/* Control Panel: hidden on mobile when viewing */}
       <div
-        className={`$${""}{
+        className={`${
           isMobile ? (mobileView === "edit" ? "flex" : "hidden") : "flex"
         } flex-1 md:flex-none md:w-80 min-h-0 pb-20 md:pb-0 print:hidden`}
       >
-        <ControlPanel
-          name={name}
-          onNameChange={setName}
-          repetitions={repetitions}
-          onRepetitionsChange={setRepetitions}
-          isLandscape={isLandscape}
-          onOrientationToggle={() => setIsLandscape((v) => !v)}
-          fontSize={fontSize}
-          onFontSizeChange={setFontSize}
-          showGuides={showGuides}
-          onGuidesToggle={() => setShowGuides((v) => !v)}
-          onPrint={handlePrint}
-          hidePrintButton={isMobile}
-        />
-      </div>
-
-      {/* Preview: hidden on mobile when editing */}
+...
       <div
-        className={`$${""}{
+        className={`${
           isMobile ? (mobileView === "view" ? "flex" : "hidden") : "flex"
         } flex-1 min-h-0 pb-20 md:pb-0 print:flex print:w-full print:pb-0`}
       >
