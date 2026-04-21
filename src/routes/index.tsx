@@ -9,11 +9,11 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Thai Name Tracing Worksheet Generator" },
+      { title: "เขียนไทย | Kian Thai - Create and print custom Thai handwriting worksheets." },
       {
         name: "description",
         content:
-          "Create printable Thai name tracing worksheets for children. Customize font size, repetitions, and guide lines.",
+          "เครื่องมือสร้างและพิมพ์ใบงานฝึกเขียนไทย ปรับแต่งข้อความ ขนาด และจำนวนแถวได้ตามต้องการ. Create and print custom Thai handwriting worksheets. Fully adjustable text, font sizes, and rows.",
       },
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
     ],
