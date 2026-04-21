@@ -1,6 +1,9 @@
 # Kian Thai (เขียนไทย)
 
+<img width="281" height="500" alt="1000045303" src="https://github.com/user-attachments/assets/9ba57ed6-ca25-42f8-ad8d-176f7d41d85c" />
+
 Kian Thai means to write Thai. This is a web-based interactive tracing engine designed for parents to print custom worksheets to help children practice and master Thai handwriting. 
+
 https://kianthai.songthamtung.workers.dev/
 
 I used Lovable to generate the initial code. Then added the Thai tracing font Layiji_kutlaimuu2_02.ttf.
