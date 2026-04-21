@@ -156,40 +156,60 @@
   background: none;
 }
 
-/* A4 sheet styling */
+/* A4 sheet styling
+   On screen we use container query units (cqw/cqh) so the worksheet scales
+   proportionally with the sheet width — true WYSIWYG vs the printed A4. */
 .a4-sheet {
   --print-page-width: 210mm;
   --print-page-height: 297mm;
   --print-padding-y: 10mm;
   --print-padding-x: 12mm;
+  /* Reference page width in CSS px at 96dpi: 210mm ≈ 793.7px, 297mm ≈ 1122.5px.
+     --ref-page-px is the px width the user's chosen font-size was designed for. */
+  --ref-page-px: 793.7;
   background: white;
   box-shadow: 0 8px 40px -8px oklch(0.5 0.03 250 / 0.25), 0 2px 8px -2px oklch(0.5 0.03 250 / 0.1);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  padding: clamp(16px, 4%, 48px);
+  container-type: inline-size;
+  /* Padding scales with sheet width to match print's 12mm horizontal / 10mm vertical */
+  padding: calc(10 / 210 * 100cqw) calc(12 / 210 * 100cqw);
 }
 
 .a4-sheet--portrait {
-  aspect-ratio: 1 / 1.414;
+  aspect-ratio: 210 / 297;
   width: min(100%, 640px);
+  --ref-page-px: 793.7;
 }
 
 .a4-sheet--landscape {
   --print-page-width: 297mm;
   --print-page-height: 210mm;
-  aspect-ratio: 1.414 / 1;
+  aspect-ratio: 297 / 210;
   width: min(100%, 900px);
+  --ref-page-px: 1122.5;
+  /* Landscape padding still 10mm vertical / 12mm horizontal of a 297mm-wide page */
+  padding: calc(10 / 297 * 100cqw) calc(12 / 297 * 100cqw);
+}
+
+/* Scale the user's chosen px font-size so it occupies the same fraction
+   of the page width on screen as it will on the printed A4. */
+.tracing-text {
+  font-size: calc(var(--worksheet-font-size) * 100cqw / (var(--ref-page-px) * 1px));
+  line-height: var(--worksheet-line-height);
+}
+
+/* Distribute rows evenly across the available sheet height — same as print. */
+.tracing-rows {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .tracing-row {
-  height: var(--screen-row-height);
-  min-height: var(--screen-row-height);
-}
-
-.tracing-text {
-  font-size: var(--worksheet-font-size);
-  line-height: var(--worksheet-line-height);
+  flex: 1 1 0;
+  min-height: 0;
 }
 
 /* Print styles */
