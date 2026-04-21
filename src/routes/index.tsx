@@ -24,7 +24,7 @@ function Index() {
   const [name, setName] = useState("");
   const [repetitions, setRepetitions] = useState(8);
   const [isLandscape, setIsLandscape] = useState(false);
-  const [fontSize, setFontSize] = useState(64);
+  const [fontSize, setFontSize] = useState(80);
   const [showGuides, setShowGuides] = useState(true);
   const [mobileView, setMobileView] = useState<"edit" | "view">("edit");
   const [isMobile, setIsMobile] = useState(false);
