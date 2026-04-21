@@ -1,4 +1,4 @@
-import { Printer, RotateCcw, Type, Rows3, Ruler, Github } from "lucide-react";
+import { Printer, RotateCcw, Type, Rows3, Ruler, Github, RectangleVertical, RectangleHorizontal } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
@@ -127,23 +127,27 @@ export function ControlPanel({
           <div className="flex gap-2">
             <button
               onClick={() => !isLandscape || onOrientationToggle()}
-              className={`flex-1 py-2.5 rounded-lg text-sm font-semibold transition-all ${
+              title="Portrait"
+              aria-label="Portrait"
+              className={`flex-1 flex justify-center items-center py-2.5 rounded-lg transition-all ${
                 !isLandscape
                   ? "bg-primary text-primary-foreground shadow-md"
                   : "bg-secondary text-muted-foreground hover:bg-muted"
               }`}
             >
-              Portrait
+              <RectangleVertical className="w-5 h-5" />
             </button>
             <button
               onClick={() => isLandscape || onOrientationToggle()}
-              className={`flex-1 py-2.5 rounded-lg text-sm font-semibold transition-all ${
+              title="Landscape"
+              aria-label="Landscape"
+              className={`flex-1 flex justify-center items-center py-2.5 rounded-lg transition-all ${
                 isLandscape
                   ? "bg-primary text-primary-foreground shadow-md"
                   : "bg-secondary text-muted-foreground hover:bg-muted"
               }`}
             >
-              Landscape
+              <RectangleHorizontal className="w-5 h-5" />
             </button>
           </div>
         </div>
