@@ -1,9 +1,9 @@
 # Kian Thai (เขียนไทย)
 
-A web-based interactive tracing engine designed to help children practice and master Thai handwriting. 
+Kian Thai means to write Thai. This is a web-based interactive tracing engine designed for parents to print custom worksheets to help children practice and master Thai handwriting. 
 https://kianthai.songthamtung.workers.dev/
 
-Used Lovable to generate the initial code. Then added the Thai tracing font Layiji_kutlaimuu2_02.ttf.
+I used Lovable to generate the initial code. Then added the Thai tracing font Layiji_kutlaimuu2_02.ttf.
 
 ## 🚀 Tech Stack
 
